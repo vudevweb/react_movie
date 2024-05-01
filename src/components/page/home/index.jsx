@@ -27,7 +27,7 @@ function Home() {
      return (
           <div className="container">
                <div className="mt-3 mb-3">
-                    <label htmlFor="search">Tìm kiếm phim</label>
+                    <label htmlFor="search">Tìm kiếm phim cần xem </label>
                     <input className="form-control" onChange={handleChange} type="text" />
                </div>
                <span> value: {test} </span>
@@ -37,7 +37,7 @@ function Home() {
                          <tr>
                               <th scope="col">#</th>
                               <th scope="col">Tên phim</th>
-                              <th scope="col">Hình ảnh</th>
+                              <th scope="col">Hình ảnh (Hơi lỗi ảnh :)))</th>
                               <th scope="col">Quốc gia</th>
                               <th scope="col">Thể loại</th>
                               <th scope="col">Hành động</th>
