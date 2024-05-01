@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 
 import Info from './components/info';
@@ -36,22 +36,6 @@ function Movie() {
                ) : (
                     <>
                          <Info data={data} slug={slugURL} server={episodes.server_data}/>
-
-                         <div className='mt-3'>
-                              {/* <p> server : <span className='btn btn-warning'> {episodes.server_name} </span></p> */}
-                              <div>
-                                   {/* {episodes.server_data.slice(0, 1).map((server, index) => (
-                                        <Link 
-                                             className='btn btn-warning me-1 mb-1 ms-1' 
-                                             to={`/movie/${slugURL}/${server.slug}`} 
-                                             key={index}>
-                                                  Xem ngay
-                                        </Link>
-                                   ))} */}
-
-                              </div>
-                         </div>
-
                     </>
                )}
           </>

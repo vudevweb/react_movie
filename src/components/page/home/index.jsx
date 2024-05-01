@@ -5,6 +5,7 @@ function Home() {
      const [title, setTitle] = useState('');
      const [movies, setMovies] = useState([]);
      const [moviesDefault, setMoviesDefault] = useState([]);
+
      useEffect(() => {
           setTitle('Trang chủ');
           document.title = title;
@@ -20,7 +21,6 @@ function Home() {
                .then(response => response.json())
                .then(data => {
                     setMovies(data.data.items);
-                    // console.log(data.data.items);
                });
           });
      };
