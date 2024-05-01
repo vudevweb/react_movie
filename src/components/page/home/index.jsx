@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useState, useEffect } from "react";
 
 function Home() {
+     const [title, setTitle] = useState('');
      const [movies, setMovies] = useState([]);
-     const [urlImage, setUrlImage] = useState("");
-     const [test, setTest] = useState("");
+     const [moviesDefault, setMoviesDefault] = useState([]);
+     useEffect(() => {
+          setTitle('Trang chủ');
+          document.title = title;
+     }, [title])
 
      const handleChange = (e) => {
           const searchTerm = e.target.value;
-          setTest(searchTerm);
-
           if(searchTerm == null || searchTerm == "") {
                return;
           }
@@ -19,28 +20,27 @@ function Home() {
                .then(response => response.json())
                .then(data => {
                     setMovies(data.data.items);
-                    setUrlImage(data.data.APP_DOMAIN_CDN_IMAGE);
+                    // console.log(data.data.items);
                });
           });
      };
 
      return (
-          <div className="container">
-               <div className="mt-3 mb-3">
-                    <label htmlFor="search">Tìm kiếm phim cần xem </label>
-                    <input className="form-control" onChange={handleChange} type="text" />
+          <div className="">
+               <div className="card">
+               <div className="mb-3 card-header">
+                    <label htmlFor="search" className="text-warning mb-2">👇 Tìm kiếm phim cần xem 👇</label>
+                    <input className="form-control" onChange={handleChange} type="text" placeholder="Nhập tên phim của bạn tại đây ✍️" />
                </div>
-               <span> value: {test} </span>
-
-               <table className="table table-hover mt-3">
+               <table className="card-body table table-striped table-centered mt-3">
                     <thead>
-                         <tr>
+                         <tr className="text-warning">
                               <th scope="col">#</th>
-                              <th scope="col">Tên phim</th>
-                              <th scope="col">Hình ảnh (Hơi lỗi ảnh :)))</th>
+                              <th scope="col" >Tên phim</th>
+                              <th scope="col">Tình trạng</th>
+                              <th scope="col">Định dạng</th>
                               <th scope="col">Quốc gia</th>
-                              <th scope="col">Thể loại</th>
-                              <th scope="col">Hành động</th>
+                              <th scope="col"></th>
                          </tr>
                     </thead>
                     <tbody>
@@ -50,28 +50,29 @@ function Home() {
                                    <td>
                                         {movie.name} <br />
                                         <span className="badge bg-danger me-1">{movie.lang}</span>
+                                        <span className="badge bg-success me-1">{movie.quality}</span>
                                    </td>
                                    <td>
-                                        <LazyLoadImage
-                                             alt={movie.name}
-                                             height="150"
-                                             src={`${urlImage}/${movie.poster_url}`}
-                                             width="100"
-                                        >
-                                        </LazyLoadImage>
+                                        {movie.episode_current}
                                    </td>
+                                   <td>
+                                        {
+                                             movie.type == 'single' ? 'Phim lẻ'
+                                             : movie.type == 'series' ? 'Phim bộ'
+                                             : movie.type == 'hoathinh' ? 'Hoạt hình'
+                                             : ''
+                                        }
+                                   </td>
+
                                    <td>{movie.country && movie.country.length > 0 ? movie.country[0].name : ''}</td>
-                                   <td>{movie.category && movie.category.length > 0 && movie.category.map((cate) => (
-                                        <span key={cate.id} className="badge bg-danger me-1 mb-1">{cate.name}</span>
-                                   ))}</td>
                                    <td>
-                                        <button className="btn btn-primary mb-3" onClick={() => alert('Cái này đang làm, xem video đi you ❤️️')}>Xem chi tiết phim</button> <br />
                                         <Link to={`/movie/${movie.slug}`} className="btn btn-success">Xem phim</Link>
                                    </td>
                               </tr>
                          ))}
                     </tbody>
                </table>
+               </div>
           </div>
      );
 }

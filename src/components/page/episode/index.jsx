@@ -38,7 +38,7 @@ function Episode() {
                                    <a className="btn btn-success me-1" href={`/`}>Trang chủ</a>
                               </nav>
                               <h1>{episodeData.name == 'Full' ? 'Tập full' : episodeData.name}</h1>
-                              <ReactPlayer url={episodeData.link_m3u8} controls={true} autoPlay width='100%' height='100%' />
+                              <ReactPlayer url={episodeData.link_m3u8} controls={true} autoPlay  width='100%' height='100%' />
                               <div className="mt-3">
                                    <p>Các tập phim</p>
                                    {episodes.server_data.map((server, index) => (

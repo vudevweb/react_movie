@@ -1,4 +1,5 @@
 import './App.css';
+import './assets/feather/feather.css';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/page/error';
 // template
@@ -13,12 +14,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/category/:slug" element={<Movie />} />
         <Route path="/movie/:slug" element={<Movie />} />
-        <Route path="/movie/:slug/:tap" element={<Episode slug=":slug" />} />
+        <Route path="/movie/:slug/:tap" element={<Episode />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
-
   );
 }
 
