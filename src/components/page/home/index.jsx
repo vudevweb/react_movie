@@ -55,8 +55,12 @@ function Home() {
                                         <span className="badge bg-danger me-1">{movie.lang}</span>
                                    </td>
                                    <td>
-                                        <LazyLoadImage key={index}>
-                                             <img loading="lazy" src={`${urlImage}/${movie.poster_url}`} alt={movie.name} width="100" />
+                                        <LazyLoadImage
+                                             alt={movie.name}
+                                             height="70"
+                                             src={`${urlImage}/${movie.poster_url}`}
+                                             width="40"
+                                        >
                                         </LazyLoadImage>
                                    </td>
                                    <td>{movie.country && movie.country.length > 0 ? movie.country[0].name : ''}</td>
