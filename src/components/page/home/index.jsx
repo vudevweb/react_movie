@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Home() {
      const [movies, setMovies] = useState([]);
@@ -54,7 +55,9 @@ function Home() {
                                         <span className="badge bg-danger me-1">{movie.lang}</span>
                                    </td>
                                    <td>
-                                        <img loading="lazy" src={`${urlImage}/${movie.poster_url}`} alt={movie.name} width="100" />
+                                        <LazyLoadImage key={index}>
+                                             <img loading="lazy" src={`${urlImage}/${movie.poster_url}`} alt={movie.name} width="100" />
+                                        </LazyLoadImage>
                                    </td>
                                    <td>{movie.country && movie.country.length > 0 ? movie.country[0].name : ''}</td>
                                    <td>{movie.category && movie.category.length > 0 && movie.category.map((cate) => (
