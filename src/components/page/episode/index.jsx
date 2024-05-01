@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import ReactPlayer from 'react-player'
 
 function Episode() {
      const { tap: tapURL } = useParams();
@@ -33,13 +34,13 @@ function Episode() {
                                    <a className="btn btn-success me-1" href={`/movie/${slugURL}`}>Quay lại</a>
                               </nav>
                               <h1>{episodeData.name}</h1>
-                              <p>Đợi xíu mới hiện phim nghe ní 😅</p>
-                              <iframe src={episodeData.link_embed} height="100%" width="100%" title="Iframe Example"></iframe>
-
-
-                              {episodes.server_data.map((server, index) => (
-                                   <a className='btn btn-secondary me-1 mb-1' href={`/movie/`+ slugURL + `/` + server.slug} key={index}> {server.name} </a>
-                              ) )}
+                              <p>Đang Load phim... 😅</p>
+                              <ReactPlayer url={episodeData.link_m3u8} controls={true} autoPlay width='100%' height='100%' />
+                              <div className="mt-3">
+                                   {episodes.server_data.map((server, index) => (
+                                        <a className='btn btn-secondary me-1 mb-1' href={`/movie/`+ slugURL + `/` + server.slug} key={index}> {server.name} </a>
+                                   ) )}
+                              </div>
                               
 
                          </div>
