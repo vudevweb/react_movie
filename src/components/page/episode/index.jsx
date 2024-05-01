@@ -21,7 +21,11 @@ function Episode() {
      }, [tapURL]);
 
      if (!episodeData) {
-          return <div>Đợi tao Load...😅</div>;
+          return <div>
+                    <div className="spinner-border text-danger" role="status">
+                         <span className="visually-hidden">Loading...</span>
+                    </div>
+               </div>
      } 
 
      return (
@@ -30,11 +34,10 @@ function Episode() {
                     episodeData && (
                          <div className="episode">
                               <nav className="mb-3">
-                                   <a className="btn btn-primary me-1" href={`/`}>Trang chủ</a>
-                                   <a className="btn btn-success me-1" href={`/movie/${slugURL}`}>Quay lại</a>
+                                   <a className="btn btn-danger me-1" href={`/movie/${slugURL}`}>Quay lại</a>
+                                   <a className="btn btn-success me-1" href={`/`}>Trang chủ</a>
                               </nav>
-                              <h1>{episodeData.name}</h1>
-                              <span>Đang Load phim... 😅</span>
+                              <h1>{episodeData.name == 'Full' ? 'Tập full' : episodeData.name}</h1>
                               <ReactPlayer url={episodeData.link_m3u8} controls={true} autoPlay width='100%' height='100%' />
                               <div className="mt-3">
                                    <p>Các tập phim</p>
