@@ -8,7 +8,6 @@ function Home() {
 
      const handleChange = (e) => {
           const searchTerm = e.target.value;
-          // console.log(searchTerm);
           setTest(searchTerm);
 
           if(searchTerm == null || searchTerm == "") {
@@ -20,7 +19,6 @@ function Home() {
                .then(data => {
                     setMovies(data.data.items);
                     setUrlImage(data.data.APP_DOMAIN_CDN_IMAGE);
-                    // console.log(data.data.items);
                });
           });
      };
@@ -56,7 +54,7 @@ function Home() {
                                         <span className="badge bg-danger me-1">{movie.lang}</span>
                                    </td>
                                    <td>
-                                        <img src={`${urlImage}/${movie.poster_url}`} alt={movie.name} width="100" />
+                                        <img loading="lazy" src={`${urlImage}/${movie.poster_url}`} alt={movie.name} width="100" />
                                    </td>
                                    <td>{movie.country && movie.country.length > 0 ? movie.country[0].name : ''}</td>
                                    <td>{movie.category && movie.category.length > 0 && movie.category.map((cate) => (
