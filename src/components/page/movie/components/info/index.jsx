@@ -49,6 +49,11 @@ function Info(props) {
                                    Xem ngay
                               </Link>
                          ))}
+                              <Link 
+                                   className='btn btn-warning me-1 mb-1 ms-1'
+                                   to={`https://phimapi.com/phim/${slug}`}>
+                                   Lấy API
+                              </Link>
                     </div>
                </div>
           </div>

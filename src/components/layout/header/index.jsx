@@ -14,7 +14,7 @@ function Header() {
                                              <input
                                                   type="search"
                                                   className="form-control ps-6 border-0 py-3 smooth-shadow-md"
-                                                  placeholder="Enter a question, topic or keyword"
+                                                  placeholder="Nhập tên phim bạn muốn xem!"
                                              />
                                         </form>
                                    </div>
