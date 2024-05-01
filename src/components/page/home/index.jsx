@@ -26,9 +26,6 @@ function Home() {
 
      return (
           <div className="container">
-               <nav>
-                    <Link to="/movie/adu-hacker">Xem phim</Link>
-               </nav>
                <div className="mt-3 mb-3">
                     <label htmlFor="search">Tìm kiếm phim</label>
                     <input className="form-control" onChange={handleChange} type="text" />
@@ -57,9 +54,9 @@ function Home() {
                                    <td>
                                         <LazyLoadImage
                                              alt={movie.name}
-                                             height="70"
+                                             height="150"
                                              src={`${urlImage}/${movie.poster_url}`}
-                                             width="40"
+                                             width="100"
                                         >
                                         </LazyLoadImage>
                                    </td>
@@ -68,7 +65,7 @@ function Home() {
                                         <span key={cate.id} className="badge bg-danger me-1 mb-1">{cate.name}</span>
                                    ))}</td>
                                    <td>
-                                        <button className="btn btn-primary mb-3">Xem chi tiết phim</button> <br />
+                                        <button className="btn btn-primary mb-3" onClick={() => alert('Cái này đang làm, xem video đi you ❤️️')}>Xem chi tiết phim</button> <br />
                                         <Link to={`/movie/${movie.slug}`} className="btn btn-success">Xem phim</Link>
                                    </td>
                               </tr>
