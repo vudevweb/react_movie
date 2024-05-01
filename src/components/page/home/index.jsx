@@ -14,7 +14,7 @@ function Home() {
                return;
           }
           setTimeout(() => {
-               fetch(`https://phimapi.com/v1/api/tim-kiem?keyword=${searchTerm}&limit=10`)
+               fetch(`https://phimapi.com/v1/api/tim-kiem?keyword=${searchTerm}&limit=5`)
                .then(response => response.json())
                .then(data => {
                     setMovies(data.data.items);
