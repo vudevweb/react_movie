@@ -25,7 +25,7 @@ function Movie() {
                     <div>
                          <p> server : {episodes.server_name}</p>
                     <div>
-                         Tập phim: {episodes.server_data.length} 👉
+                         <p>Các phim ({episodes.server_data.length})</p>
                          {episodes.server_data.map((server, index) => (
                                    <Link className='btn btn-secondary me-1 mb-1 ms-1 ' to={`/movie/`+ slugURL + `/` + server.slug} key={index}> {server.name} </Link>
                          ))}

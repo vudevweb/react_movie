@@ -29,14 +29,15 @@ function Episode() {
                {
                     episodeData && (
                          <div className="episode">
-                              <nav>
+                              <nav className="mb-3">
                                    <a className="btn btn-primary me-1" href={`/`}>Trang chủ</a>
                                    <a className="btn btn-success me-1" href={`/movie/${slugURL}`}>Quay lại</a>
                               </nav>
                               <h1>{episodeData.name}</h1>
-                              <p>Đang Load phim... 😅</p>
+                              <span>Đang Load phim... 😅</span>
                               <ReactPlayer url={episodeData.link_m3u8} controls={true} autoPlay width='100%' height='100%' />
                               <div className="mt-3">
+                                   <p>Các tập phim</p>
                                    {episodes.server_data.map((server, index) => (
                                         <a className='btn btn-secondary me-1 mb-1' href={`/movie/`+ slugURL + `/` + server.slug} key={index}> {server.name} </a>
                                    ) )}
