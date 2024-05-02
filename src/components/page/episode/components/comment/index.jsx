@@ -26,7 +26,7 @@ function Comment() {
      return (
           <div
                style={ {background: "#fff" , borderRadius: "7px"} }
-               className="fb-comments mt-3"
+               className="fb-comments"
                data-href={url}
                data-numposts="5"
                data-width="100%"
