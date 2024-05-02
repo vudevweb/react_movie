@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 
+import Comment from "./components/comment";
+
 function Episode() {
      const { tap: tapURL } = useParams();
      const { slug: slugURL } = useParams();
@@ -44,6 +46,7 @@ function Episode() {
 
                {
                     episodeData && (
+                         <> 
                          <div className="card">
                               <div className="card-header">
                                    <nav aria-label="breadcrumb text-warning">
@@ -61,7 +64,6 @@ function Episode() {
                                    <span></span>
                               </div>
                               <div className=" card-body row">
-
                                    <div className="col-8 col-sm-12 col-xl-8">
                                         <p className="text-warning text-start"> <i className="fe fe-hash"></i> {episodeData.name == 'Full' ? '<0' : episodeData.name} </p>
                                         <ReactPlayer url={episodeData.link_m3u8} playing={true} controls={true} width='100%' height='500' />
@@ -77,9 +79,11 @@ function Episode() {
                                                   </a>
                                              ))}
                                         </div>
+
+                                        <Comment />
                                    </div>
 
-                                   <div className="col-4">
+                                   <div className="col-4 mt-3">
                                         <p className="text-warning text-start"> <i className="fe fe-hash"></i> CÓ THỂ BẠN THÍCH XEM</p>
 
 
@@ -100,6 +104,8 @@ function Episode() {
                                    </div>     
                               </div>
                          </div>
+
+                         </>
                     )
                }
 
