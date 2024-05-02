@@ -15,7 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/category/:slug" element={<Movie />} />
+        <Route path="/category/:slug" element={<NotFound />} />
         <Route path="/movie/:slug" element={<Movie />} />
         <Route path="/movie/:slug/:tap" element={<Episode />} />
         <Route path="*" element={<NotFound />} />
