@@ -13,7 +13,6 @@
 
           useEffect(() => {
                setpTvShow(tvShowP);
-               console.log(tvShowP);
                setTimeout(() => {
                     setLoading(false);
                }, 1500);

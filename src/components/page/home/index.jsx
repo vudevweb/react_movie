@@ -53,7 +53,6 @@ function Home() {
           .then(response => response.json())
           .then(data => {
                setTvShowP(data.data.items);
-               console.log(data.data);
                setLoading(false);
           })
      }, []);

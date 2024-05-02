@@ -16,11 +16,10 @@ function App() {
     <div className='container'>
       <Header/>
       <Routes>
-        <Route path="/" element={<Phim />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/category/:slug" element={<NotFound />} />
         <Route path="/movie/:slug" element={<Movie />} />
-        <Route path="/movie/:slug/:tab" element={<Episode />} /> {/* Changed 'tap' to 'tab' */}
+        <Route path="/movie/:slug/:tap" element={<Episode />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
@@ -28,3 +27,4 @@ function App() {
 }
 
 export default App;
+
