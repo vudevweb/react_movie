@@ -17,10 +17,10 @@ function Info(props) {
      return (
           <div className="card">
                <div className='row card-body'>
-                    <div className="col-4">
+                    <div className="col-12 col-ms-12 col-md-12 col-xl-4">
                          <img src={info.poster_url} width="100%" height="100%" className="rounded-3" alt="" loading='lazy' />
                     </div>
-                    <div className="col-8 text-start data_phim text-warning">
+                    <div className="col-12 col-ms-12 col-md-12 col-xl-8 text-start data_phim text-warning">
                          <p><strong>Tên phim</strong>: {info.name}</p>
                          <p><strong>Tên gốc</strong>: {info.origin_name}</p>
                          <p><strong>Tình trạng</strong>: {info.episode_current}</p>

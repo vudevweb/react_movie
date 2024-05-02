@@ -116,7 +116,7 @@ function Home() {
                                         </Link>
                                    </th>
                                    <td>
-                                        <a className="text-warning" href="http://">{movie.name}</a>
+                                        <Link to={`/movie/${movie.slug}`} className="text-warning" >{movie.name}</Link>
                                         <br />
                                         <span className="badge bg-danger me-1 mb-1">{movie.lang}</span>
                                         <span className="badge bg-success me-1 mb-1">{movie.quality}</span>
