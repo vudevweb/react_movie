@@ -33,9 +33,7 @@ function PhimLienQuan(props) {
                .then(response => response.json())
                .then(data => {
                     const movie_vd = shuffleArray(data.data.items).slice(0, 4);
-
                     setPhimLienQuan(movie_vd);
-                    console.log(movie_vd)
                })
                .catch(error => {
                     console.error('Error fetching related movie data:', error);
