@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 
 import Comment from "./components/comment";
@@ -53,12 +53,12 @@ function Episode() {
                                    <nav aria-label="breadcrumb text-warning">
                                         <ol className="breadcrumb ">
                                              <li className="breadcrumb-item ">
-                                                  <a className="text-warning" href="/">Trang chủ</a>
+                                                  <Link  className="text-warning" to="/">Trang chủ</Link>
                                              </li>
                                              <li className="breadcrumb-item">
-                                                  <a className="text-warning" href={`/movie/${movie.slug}`}>
+                                                  <Link className="text-warning" to={`/movie/${movie.slug}`}>
                                                        {movie.name}
-                                                  </a>
+                                                  </Link>
                                              </li>
                                         </ol>
                                    </nav>
@@ -71,13 +71,13 @@ function Episode() {
                                         <div className="mt-3">
                                              <p className="text-warning text-start"> <i className="fe fe-hash"></i>CHỌN TẬP PHIM</p>
                                              {episodes.server_data.map((server, index) => (
-                                                  <a   
+                                                  <Link   
                                                        className={`btn btn-secondary btn_vd me-1 mb-1 ${tapURL === server.slug ? 'btn-warning' : ''}`}
-                                                       href={`/movie/${slugURL}/${server.slug}`}
+                                                       to={`/movie/${slugURL}/${server.slug}`}
                                                        key={index}
                                                   >
                                                        {server.name}
-                                                  </a>
+                                                  </Link>
                                              ))}
                                         </div>
                                         <p className="text-warning text-start mt-3"> <i className="fe fe-hash"></i>BÌNH LUẬN</p>

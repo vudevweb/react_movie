@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function List() {
      const [moviesDefault, setMoviesDefault] = useState([]);
@@ -40,22 +41,22 @@ function List() {
                               key={index}
                          >
                               <div className="card card-hover " style={{ background: "#0F172A" }}>
-                                   <a href={`/movie/${movie.slug}`}>
+                                   <Link to={`/movie/${movie.slug}`}>
                                         <img
                                              src={movie.thumb_url} 
                                              className="img-fluid rounded-top-md"
                                              alt={movie.name} 
                                              loading="lazy"
                                         />
-                                   </a>
+                                   </Link>
                                    <div className="card-body">
-                                        <a href={`/movie/${movie.slug}`} className="badge bg-info mb-3">
+                                        <Link to={`/movie/${movie.slug}`} className="badge bg-info mb-3">
                                              {movie.year}
-                                        </a>
+                                        </Link>
                                         <h4>
-                                             <a href="blog-single.html" className="text-inherit">
+                                             <Link to="blog-single.html" className="text-inherit">
                                                   {movie.name} 
-                                             </a>
+                                             </Link>
                                         </h4>
                                    </div>
                               </div>

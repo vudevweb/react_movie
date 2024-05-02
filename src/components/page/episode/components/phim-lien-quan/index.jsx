@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function PhimLienQuan(props) {
@@ -49,17 +49,17 @@ function PhimLienQuan(props) {
                          <div key={index} className="col-12 col-md-6 col-xl-12 mb-3 d-block">
                               <div className="card card-hover" style={{ background: "#0F172A", cursor: "pointer" }}>
                                    <div className="row g-0">
-                                        <a href={`/movie/${movie.slug}`} className="col-md-4 p-0">
+                                        <Link to={`/movie/${movie.slug}`} className="col-md-4 p-0">
                                              <img src={`https://img.phimapi.com/${movie.poster_url}`} className="img-fluid rounded-start anh_hover" style={{ height: 210 }} alt="..." />
-                                        </a>
+                                        </Link>
                                         <div className="col-md-8">
                                              <div className="card-body text-start h-100" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                                                   <div>
-                                                  <a href="#" className="badge bg-danger mb-2 me-1">{movie.lang}</a>
-                                                  <a href="#" className="badge bg-success mb-2 me-1">{movie.quality}</a>
-                                                  <a href="#" className="badge bg-primary mb-2 me-1">{movie.year}</a>
+                                                  <Link to="#" className="badge bg-danger mb-2 me-1">{movie.lang}</Link>
+                                                  <Link to="#" className="badge bg-success mb-2 me-1">{movie.quality}</Link>
+                                                  <Link to="#" className="badge bg-primary mb-2 me-1">{movie.year}</Link>
                                                   </div>
-                                                  <a href={`/movie/${movie.slug}`}><h5 className="card-title text-warning text-inherit mb-3">{movie.name}</h5></a>
+                                                  <Link to={`/movie/${movie.slug}`}><h5 className="card-title text-warning text-inherit mb-3">{movie.name}</h5></Link>
                                                   <p className="card-text"><small className="text-muted"></small></p>
                                              </div>
                                         </div>

@@ -105,7 +105,7 @@ function Home() {
                          { movies.map((movie, index) => (
                               <tr key={index}>
                                    <th>
-                                        <a href={`/movie/${movie.slug}`}>
+                                        <Link to={`/movie/${movie.slug}`}>
                                              <img
                                                   src={`https://img.phimapi.com/${movie.thumb_url}`} 
                                                   className="img-fluid rounded-top-md"
@@ -113,7 +113,7 @@ function Home() {
                                                   loading="lazy"
                                                   width={100}
                                              />
-                                        </a>
+                                        </Link>
                                    </th>
                                    <td>
                                         <a className="text-warning" href="http://">{movie.name}</a>

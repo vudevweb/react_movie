@@ -1,4 +1,5 @@
      import { useState, useEffect } from "react";
+     import { Link } from "react-router-dom";
 
      import "slick-carousel/slick/slick.css";
      import "slick-carousel/slick/slick-theme.css";
@@ -58,36 +59,36 @@
           return (
                <div className="card mt-3 slider-container" >
                     <div className="card-header d-flex justify-content-between align-item-center">
-                         <span ><a href="/category/tv-show" className="text-warning">
-                              <i className="fe fe-hash"></i> TV Show</a></span>
-                         <small ><a href="/category/tv-show" className="text-warning">Xem thêm</a></small>
+                         <span ><Link to="/category/tv-show" className="text-warning">
+                              <i className="fe fe-hash"></i> TV Show</Link></span>
+                         <small ><Link to="/category/tv-show" className="text-warning">Xem thêm</Link></small>
                     </div>
                     <Slider {...settings} className="card-body row">
                          {tvShow.map((movie, index) => (
                                    <div className="col-xl-4 col-lg-4 col-md-6 col-12" key={index}>
                                         <div className="card card-hover " style={{ background: "#0F172A" }}>
-                                             <a href={`/movie/${movie.slug}`}>
+                                             <Link to={`/movie/${movie.slug}`}>
                                                   <img
                                                        src={`https://img.phimapi.com/${movie.thumb_url}`} 
                                                        className="img-fluid rounded-top-md"
                                                        alt={movie.name} 
                                                        loading="lazy"
                                                   />
-                                             </a>
+                                             </Link>
                                              <div className="card-body">
-                                                  <a href={`/movie/${movie.slug}`} className="badge bg-warning mb-3 me-1">
+                                                  <Link to={`/movie/${movie.slug}`} className="badge bg-warning mb-3 me-1">
                                                        {movie.year}
-                                                  </a>
-                                                  <a href={`/movie/${movie.slug}`} className="badge bg-danger mb-3 me-1">
+                                                  </Link>
+                                                  <Link to={`/movie/${movie.slug}`} className="badge bg-danger mb-3 me-1">
                                                        {movie.quality}
-                                                  </a>
-                                                  <a href={`/movie/${movie.slug}`} className="badge bg-success mb-3 me-1">
+                                                  </Link>
+                                                  <Link to={`/movie/${movie.slug}`} className="badge bg-success mb-3 me-1">
                                                        {movie.lang}
-                                                  </a>
+                                                  </Link>
                                                   <h4>
-                                                       <a href={`/movie/${movie.slug}`} className="text-inherit">
+                                                       <Link to={`/movie/${movie.slug}`} className="text-inherit">
                                                             {movie.name} 
-                                                       </a>
+                                                       </Link>
                                                   </h4>
                                              </div>
                                         </div>
