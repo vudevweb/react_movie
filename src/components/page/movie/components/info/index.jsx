@@ -27,7 +27,7 @@ function Info(props) {
                          <p><strong>Số tập</strong>: {info.episode_total}</p>
                          <p><strong>Thời lượng</strong>: {info.time}</p>
                          <p><strong>Năm phát hành</strong>: {info.year}</p>
-                         <p><strong>Đạo diễn</strong>: Hua-Tao Teng</p>
+                         <p><strong>Đạo diễn</strong>: Vũ Đỗ chứ ai</p>
                          <p><strong>Diễn viên</strong>: {info.actor && info.actor.map((item, index) => (
                               <span key={index}> {item}, </span>
                          ))}</p>

@@ -1,16 +1,62 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import List from "./components/list";
+import PhimLe from "./components/phim-le";
+import PhimBo from "./components/phim-bo";
+import Anime from "./components/hoat-hinh";
+import TvShow from "./components/tv-show";
+
 function Home() {
      const [title, setTitle] = useState('');
      const [movies, setMovies] = useState([]);
+     const [loading, setLoading] = useState(true);
+     const [phimLe, setpPhimLe] = useState([]);
+     const [animeP, setAnimeP] = useState([]);
+     const [phimBo, setpPhimBo] = useState([]);
+     const [tvShowP, setTvShowP] = useState([]);
+
 
      useEffect(() => {
           setTitle('Trang chủ');
           document.title = title;
      }, [title])
 
+     useEffect(() => {
+          fetch(`https://phimapi.com/v1/api/danh-sach/phim-le`)
+          .then(response => response.json())
+          .then(data => {
+               setpPhimLe(data.data.items);
+               setLoading(false);
+          })
+     }, []);
 
+     useEffect(() => {
+          fetch(`https://phimapi.com/v1/api/danh-sach/phim-bo`)
+          .then(response => response.json())
+          .then(data => {
+               setpPhimBo(data.data.items);
+               setLoading(false);
+          })
+     }, []);
+
+     useEffect(() => {
+          fetch(`https://phimapi.com/v1/api/danh-sach/hoat-hinh`)
+          .then(response => response.json())
+          .then(data => {
+               setAnimeP(data.data.items);
+               setLoading(false);
+          })
+     }, []);
+
+     useEffect(() => {
+          fetch(`https://phimapi.com/v1/api/danh-sach/tv-shows`)
+          .then(response => response.json())
+          .then(data => {
+               setTvShowP(data.data.items);
+               console.log(data.data);
+               setLoading(false);
+          })
+     }, []);
 
      const handleChange = (e) => {
           const searchTerm = e.target.value;
@@ -23,12 +69,20 @@ function Home() {
                .then(response => response.json())
                .then(data => {
                     setMovies(data.data.items);
-                    console.log(data.data.items);
                });
           });
      };
 
-     
+     if (loading) {
+          return (
+               <div className="text-center mt-3 loading_vd">
+                    <div className="spinner-border text-warning" role="status">
+                         <span className="visually-hidden">Loading...</span>
+                    </div>
+               </div>
+          );
+     }
+
      return (
           <div className="">
                <div className="card">
@@ -89,7 +143,13 @@ function Home() {
                     </tbody>
                </table>
                </div>
-               
+
+               {/* danh mục */}
+                    <PhimLe phimLe={phimLe} />
+                    <PhimBo phimBo={phimBo} />
+                    <Anime  animeP={animeP}/>
+                    <TvShow tvShowP={tvShowP}/>
+               {/* end danh mục */}
                <List />
           </div>
      );

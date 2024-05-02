@@ -28,8 +28,8 @@ function Movie() {
      return (
           <>
                {episodes.length == 0 ? (
-                         <div>
-                              <div className="spinner-border text-danger" role="status">
+                         <div className='loading_vd'>
+                              <div className="spinner-border text-danger" role="status" >
                                    <span className="visually-hidden">Loading...</span>
                               </div>
                          </div>

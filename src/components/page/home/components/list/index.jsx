@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function List() {
      const [moviesDefault, setMoviesDefault] = useState([]);
-     const [loading, setLoading] = useState(true); // Add loading state to track data loading
-
+     const [loading, setLoading] = useState(true);
      useEffect(() => {
           fetch("https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=1")
                .then((response) => response.json())
                .then((data) => {
                     setMoviesDefault(data.items);
-                    setLoading(false); // Update loading state after data is fetched
-                    console.log(data);
+                    setLoading(false);
+                    // console.log(data);
                })
                .catch((error) => {
                     console.error("Error fetching data:", error);
-                    setLoading(false); // Update loading state in case of error
+                    setLoading(false);
                });
      }, []);
 
-     // Render loading spinner if data is still loading
      if (loading) {
           return (
-               <div className="text-center mt-3">
-                    <div className="spinner-border text-danger" role="status">
+               <div className="text-center mt-3 loading_vd">
+                    <div className="spinner-border text-warning" role="status">
                          <span className="visually-hidden">Loading...</span>
                     </div>
                </div>

@@ -28,3 +28,25 @@ body::-webkit-scrollbar-thumb {
 .data_phim p {
   margin-bottom: 15px;
 }
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-prev {
+  left: 0 !important;
+}
+.slick-next {
+  right: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .slick-slide {
+      padding: 0 5px;
+  }
+}
+
+.loading_vd {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}

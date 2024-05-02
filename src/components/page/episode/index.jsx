@@ -32,7 +32,7 @@ function Episode() {
      }, [title])
 
      if (!episodeData) {
-          return <div>
+          return <div className='loading_vd'>
                <div className="spinner-border text-danger" role="status">
                     <span className="visually-hidden">Loading...</span>
                </div>
@@ -64,7 +64,7 @@ function Episode() {
 
                                    <div className="col-8 col-sm-12 col-xl-8">
                                         <p className="text-warning text-start"> <i className="fe fe-hash"></i> {episodeData.name == 'Full' ? '<0' : episodeData.name} </p>
-                                        <ReactPlayer url={episodeData.link_m3u8} controls={true} width='100%' height='500' />
+                                        <ReactPlayer url={episodeData.link_m3u8} playing={true} controls={true} width='100%' height='500' />
                                         <div className="mt-3">
                                              <p className="text-warning text-start"> <i className="fe fe-hash"></i>CHỌN TẬP PHIM</p>
                                              {episodes.server_data.map((server, index) => (

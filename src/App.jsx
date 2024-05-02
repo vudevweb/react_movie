@@ -1,5 +1,6 @@
 import './App.css';
 import './assets/feather/feather.css';
+import './assets/js/smoothscroll.js';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/page/error';
 // template
