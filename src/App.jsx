@@ -1,23 +1,26 @@
 import './App.css';
 import './assets/feather/feather.css';
 import './assets/js/smoothscroll.js';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFound from './components/page/error';
+
 // template
 import Home from './components/page/home';
-import Movie from './components/page/movie'
+import Movie from './components/page/movie';
 import Episode from './components/page/episode';
 import Header from './components/layout/header';
+import Phim from './components/page/quat-mo-trung-ma';
 
 function App() {
   return (
     <div className='container'>
-      <Header />
+      <Header/>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Phim />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/category/:slug" element={<NotFound />} />
         <Route path="/movie/:slug" element={<Movie />} />
-        <Route path="/movie/:slug/:tap" element={<Episode />} />
+        <Route path="/movie/:slug/:tab" element={<Episode />} /> {/* Changed 'tap' to 'tab' */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
