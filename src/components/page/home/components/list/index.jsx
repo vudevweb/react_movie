@@ -38,7 +38,7 @@ function List() {
                     {moviesDefault.map((movie, index) => (
                          <div key={index} className="col-6 col-sm-4 col-lg-3 col-xl-2">
                          <div className="card card-vip">
-                              <Link to={`/phim/`+ movie.slug} className="card__cover">
+                              <Link to={`/phim/?name=`+encodeURIComponent(movie.slug)} className="card__cover">
                                    <img height={260} src={movie.thumb_url} alt={movie.name} />
                                    <svg
                                         width={22}
@@ -75,7 +75,7 @@ function List() {
                                    7.1
                               </span>
                               <h3 className="card__title">
-                                   <Link to={`/phim/`+ movie.slug}>{movie.name}</Link>
+                                   <Link to={`/phim/?name=`+encodeURIComponent(movie.slug)}>{movie.name}</Link>
                               </h3>
                          </div>
                     </div>

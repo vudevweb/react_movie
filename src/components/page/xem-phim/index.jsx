@@ -5,9 +5,9 @@ import ReactPlayer from 'react-player'
 import Comment from "./components/comment";
 
 function XemPhim() {
-     const { slug: slugURL } = useParams();
      const location = useLocation();
      const params = new URLSearchParams(location.search);
+     const slugURL = params.get("name");
      const server = params.get("server");
      const tap = params.get("tap");
 
@@ -23,7 +23,6 @@ function XemPhim() {
                     setMovie(data.movie);
                     setTitle(data.movie.name);
                     setEpisodes(data.movie.episodes);
-                    console.log(data.movie.category);
                     const episode = data.movie.episodes.find(ep => ep.server_name === server);
                     setEpisodeData(episode.items.find(item => item.name === tap));
                })
@@ -78,7 +77,7 @@ function XemPhim() {
                                                   {serverEpisodes.items.map((episode, i) => (
                                                        <Link
                                                             className={`btn btn-secondary me-3 mb-3 ${episode.name === tap ? 'btn btn-warning' : ''}`}
-                                                            to={`/xem-phim/${slugURL}?server=${encodeURIComponent(serverEpisodes.server_name)}&tap=${encodeURIComponent(episode.name)}`}
+                                                            to={`/xem-phim?name=${encodeURIComponent(slugURL)}&server=${encodeURIComponent(serverEpisodes.server_name)}&tap=${encodeURIComponent(episode.name)}`}
                                                             key={i}
                                                        >
                                                             {episode.name}

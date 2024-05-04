@@ -41,7 +41,7 @@ function Info(props) {
                          {server.slice(0, 1).map((items, index) => (
                               <Link
                                    className="btn btn-warning me-3"
-                                   to={`/xem-phim/${slug}?server=${encodeURIComponent(items.server_name)}&tap=${encodeURIComponent(items.items[0].name)}`}
+                                   to={`/xem-phim?name=${encodeURIComponent(slug)}&server=${encodeURIComponent(items.server_name)}&tap=${encodeURIComponent(items.items[0].name)}`}
                                    key={index}
                               >
                                    Xem ngay
@@ -172,7 +172,7 @@ function Info(props) {
                                                        {items.items.map((adu, i) => (
                                                             <Link
                                                                  className="btn btn-warning me-3 mb-3"
-                                                                 to={`/xem-phim/${slug}?server=${encodeURIComponent(items.server_name)}&tap=${encodeURIComponent(adu.name)}`}
+                                                                 to={`/xem-phim?name=${encodeURIComponent(slug)}&server=${encodeURIComponent(items.server_name)}&tap=${encodeURIComponent(adu.name)}`}
                                                                  key={i}
                                                             >
                                                                  {adu.name}

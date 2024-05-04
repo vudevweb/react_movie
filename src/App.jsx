@@ -22,9 +22,9 @@ function App() {
         <Route path="/tim-kiem" element={<Search />} />
         <Route path="/category/:slug" element={<NotFound />} />
         <Route path="/movie/:slug" element={<Movie />} />
-        <Route path="/phim/:slug" element={<Phim />} />
+        <Route path="/phim" element={<Phim />} />
         <Route path="/movie/:slug/:tap" element={<Episode />} />
-        <Route path="/xem-phim/:slug" element={<XemPhim />} />
+        <Route path="/xem-phim" element={<XemPhim />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
