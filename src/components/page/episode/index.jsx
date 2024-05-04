@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 
 import Comment from "./components/comment";
-import PhimLienQuan from "./components/phim-lien-quan";
 
 function Episode() {
      const { tap: tapURL } = useParams();
@@ -20,7 +19,6 @@ function Episode() {
                .then(response => response.json())
                .then(data => {
                     setMovie(data.movie);
-                    // console.log(data.movie)
                     setTitle(data.movie.name);
                     setEpisodes(data.episodes[0]);
                     setEpisodeData(data.episodes[0].server_data.find(server => server.slug === tapURL));
@@ -64,10 +62,10 @@ function Episode() {
                                    </nav>
                                    <span></span>
                               </div>
-                              <div className=" card-body row">
-                                   <div className="col-12 col-sm-12 col-xl-8 video_vd mb-4">
+                              <div className="card-body row">
+                                   <div className="col-12 col-sm-12 col-xl-12 video_vd mb-4">
                                         <p className="text-warning text-start"> <i className="fe fe-hash"></i> {episodeData.name == 'Full' ? '<0' : episodeData.name} </p>
-                                        <ReactPlayer  url={episodeData.link_m3u8} playing={true} controls={true} width='100%' height='500' />
+                                        <ReactPlayer className="container"  url={episodeData.link_m3u8} playing={true} controls={true} width='100%' height='500' />
                                         <div className="mt-3">
                                              <p className="text-warning text-start"> <i className="fe fe-hash"></i>CHỌN TẬP PHIM</p>
                                              {episodes.server_data.map((server, index) => (
@@ -82,11 +80,7 @@ function Episode() {
                                         </div>
                                         <p className="text-warning text-start mt-3"> <i className="fe fe-hash"></i>BÌNH LUẬN</p>
                                         <Comment />
-                                   </div>
-
-                                   <div className="col-12 col-sm-12 col-xl-4">
-                                        <PhimLienQuan movie={movie}/>
-                                   </div>     
+                                   </div>    
                               </div>
                          </div>
 

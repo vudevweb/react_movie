@@ -7,9 +7,11 @@ import NotFound from './components/page/error';
 // template
 import Home from './components/page/home';
 import Movie from './components/page/movie';
+import Phim from './components/page/phim';
+import XemPhim from './components/page/xem-phim';
 import Episode from './components/page/episode';
 import Header from './components/layout/header';
-import Phim from './components/page/quat-mo-trung-ma';
+import Search from './components/page/search';
 
 function App() {
   return (
@@ -17,9 +19,12 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/tim-kiem" element={<Search />} />
         <Route path="/category/:slug" element={<NotFound />} />
         <Route path="/movie/:slug" element={<Movie />} />
+        <Route path="/phim/:slug" element={<Phim />} />
         <Route path="/movie/:slug/:tap" element={<Episode />} />
+        <Route path="/xem-phim/:slug" element={<XemPhim />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -8,6 +8,7 @@ function Info(props) {
 
      useEffect(() => {
           setInfo(data);
+          console.log(data);
      }, [data]);
 
      if (!info) {
@@ -24,7 +25,7 @@ function Info(props) {
                          <p><strong>Tên phim</strong>: {info.name}</p>
                          <p><strong>Tên gốc</strong>: {info.origin_name}</p>
                          <p><strong>Tình trạng</strong>: {info.episode_current}</p>
-                         <p><strong>Số tập</strong>: {info.episode_total}</p>
+                         <p><strong>Tổng số tập</strong>: {info.episode_total}</p>
                          <p><strong>Thời lượng</strong>: {info.time}</p>
                          <p><strong>Năm phát hành</strong>: {info.year}</p>
                          <p><strong>Đạo diễn</strong>: Vũ Đỗ chứ ai</p>
@@ -43,19 +44,26 @@ function Info(props) {
 
                          {server.slice(0, 1).map((serverItem, index) => (
                               <Link
-                                   className='btn btn-warning me-1 mb-1 ms-1'
+                                   className='btn btn-warning me-1 ms-1'
                                    to={`/movie/${slug}/${serverItem.slug}`}
                                    key={index}>
                                    Xem ngay
                               </Link>
                          ))}
-                              <Link 
-                                   className='btn btn-warning me-1 mb-1 ms-1'
-                                   to={`https://phimapi.com/phim/${slug}`}>
-                                   Lấy API
-                              </Link>
+                         <a className="btn btn-danger" href={info.trailer_url} target="_blank" rel="noopener noreferrer" >Xem Trailer</a>
                     </div>
                </div>
+
+               <div className="card-footer text-start">
+                    <div className="text-warning">
+                         <i className="fe fe-hash"></i>
+                         <strong >Mô tả phim</strong>
+                    </div>
+                    <p>
+                         {info.content}
+                    </p>
+               </div>
+
           </div>
      );
 }

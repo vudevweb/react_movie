@@ -1,5 +1,13 @@
-function Header() {
+import { Link } from "react-router-dom";
 
+function Header() {
+     const handleSearch = (e) => {
+          e.preventDefault();
+          const search = e.target[0].value;
+          if (search) {
+               window.location.href = `/tim-kiem?key=${search}`;
+          }
+     };
      return (
           <>
                <div className="collapse " id="collapseExample">
@@ -7,7 +15,7 @@ function Header() {
                          <div className="row align-items-center">
                               <div className="col-md-11 col-10">
                                    <div className="py-4">
-                                        <form className="d-flex align-items-center">
+                                        <form onSubmit={handleSearch} className="d-flex align-items-center">
                                              <span className="position-absolute ps-3">
                                                   <i className="fe fe-search text-muted" />
                                              </span>
@@ -16,6 +24,10 @@ function Header() {
                                                   className="form-control ps-6 border-0 py-3 smooth-shadow-md"
                                                   placeholder="Nhập tên phim bạn muốn xem!"
                                              />
+                                        <button
+                                             type="submit"
+                                             className="btn btn-primary btn-sm"
+                                        > Tìm kiếm </button> 
                                         </form>
                                    </div>
                               </div>
@@ -38,17 +50,17 @@ function Header() {
                <nav className="navbar mb-3 mt-3 navbar-expand" style={{ borderRadius: "7px" }}>
                     <div className="container px-0">
                          <div className="d-flex align-items-center">
-                              <a className="me-4" href="/">
+                              <Link className="me-4" to="/">
                                    <img
                                         src="https://ui-avatars.com/api/?background=random&name=vu+do"
                                         alt="logo của vũ đỗ"
                                    />
-                              </a>
+                              </Link>
                               <ul className="navbar-nav me-4">
                                    <li className="nav-item">
-                                        <a className="nav-link" aria-current="page" href="/">
+                                        <Link className="nav-link" aria-current="page" to="/">
                                              Trang chủ
-                                        </a>
+                                        </Link>
                                    </li>
                               </ul>
                               <ul className="list-unstyled mb-0 lh-1">

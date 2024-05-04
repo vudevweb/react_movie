@@ -1,0 +1,11 @@
+.card-vip {
+     background-color: transparent !important;
+}
+.img-phim {
+     height: auto !important; 
+     object-fit: cover !important;
+}
+
+.chua-anh-phim {
+     width: 100%;
+}

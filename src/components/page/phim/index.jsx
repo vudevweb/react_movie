@@ -11,10 +11,10 @@ function Movie() {
      const { slug: slugURL } = useParams();
 
      useEffect(() => {
-          fetch(`https://phimapi.com/phim/${slugURL}`)
+          fetch(`https://phim.nguonc.com/api/film/${slugURL}`)
                .then(response => response.json())
                .then(data => {
-                    setEpisodes(data.episodes[0]);
+                    setEpisodes(data.movie.episodes);
                     setTitle(data.movie.name);
                     setData(data.movie);
                });
@@ -28,14 +28,12 @@ function Movie() {
           <>
                {episodes.length == 0 ? (
                          <div className='loading_vd'>
-                              <div className="spinner-border text-danger" role="status" >
+                              <div className="spinner-border text-warning" role="status" >
                                    <span className="visually-hidden">Loading...</span>
                               </div>
                          </div>
                ) : (
-                    <>
-                         <Info data={data} slug={slugURL} server={episodes.server_data}/>
-                    </>
+                         <Info data={data} slug={slugURL} server={episodes}/>
                )}
           </>
      );
