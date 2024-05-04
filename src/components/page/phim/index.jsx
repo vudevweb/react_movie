@@ -13,11 +13,10 @@ function Movie() {
      useEffect(() => {
           const params = new URLSearchParams(location.search);
           const slugFromParams = params.get('name');
-          console.log(slugFromParams);
           if (slugFromParams) {
                setSlugURL(slugFromParams);
           }
-     }, [location.search]);
+     }, [location]);
 
      useEffect(() => {
           if (slugURL) {
@@ -28,6 +27,10 @@ function Movie() {
                          setEpisodes(data.movie.episodes);
                          setTitle(data.movie.name);
                          setData(data.movie);
+                    })
+                    .catch(error => {
+                         console.error('Error fetching movie data:', error);
+                         setLoading(false); // Set loading to false in case of error
                     });
           }
      }, [slugURL]);
