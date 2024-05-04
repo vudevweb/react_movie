@@ -9,7 +9,8 @@ function Movie() {
      const [data, setData] = useState([]);
      const [loading, setLoading] = useState(true);
      const [slugURL, setSlugURL] = useState('');
-
+     const [reloadTrigger, setReloadTrigger] = useState(Date.now());
+     console.log(reloadTrigger);
      useEffect(() => {
           const params = new URLSearchParams(location.search);
           const slugFromParams = params.get('name');
@@ -30,14 +31,19 @@ function Movie() {
                     })
                     .catch(error => {
                          console.error('Error fetching movie data:', error);
-                         setLoading(false); // Set loading to false in case of error
+                         setLoading(false); 
                     });
           }
-     }, [slugURL]);
+     }, [slugURL, reloadTrigger]); // Sử dụng reloadTrigger ở đây
 
      useEffect(() => {
           document.title = title;
      }, [title])
+
+     useEffect(() => {
+          // Set reloadTrigger để kích hoạt useEffect() khi trang được reload
+          setReloadTrigger(Date.now());
+     }, []);
 
      if (loading) {
           return (

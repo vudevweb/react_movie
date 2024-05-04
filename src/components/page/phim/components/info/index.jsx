@@ -154,7 +154,7 @@ function Info(props) {
                                    className="tab-pane fade tab_pane_cus"
                                    id="ex1-tabs-cf" role="tabpanel" aria-labelledby="ex1-tabs-cf" >
                                    <div className="card-body ">
-                                        <p>
+                                        <p><strong>Nội dung phim {info.name} : </strong>
                                              {info.description}
                                         </p>
                                    </div>
